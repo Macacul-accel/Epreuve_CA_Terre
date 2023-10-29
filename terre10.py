@@ -3,11 +3,14 @@
 import sys
 
 def nbprem(x):
-    for i in range(2, x):
-        if (x % i) == 0:
-            return False
-        else:
-            return True
+    i = 2
+    while x % i != 0:
+        i += 1
+        if x == i:
+            print(f"{x} est un nombre premier")
+            break
+    else:
+        print(f"{x} n'est pas un nombre premier")
 
 try:
     if len(sys.argv) > 2:
@@ -22,10 +25,7 @@ try:
         elif len(sys.argv) > 2:
             print("Ne rentrer qu'une chaîne")
         else:
-            if nbprem(x) == False:
-                print(f"{x} n'est pas un nombre premier")
-            else:
-                print(f"{x} est un nombre premier")
+            nbprem(x)
 
 except:
     print("Rentrer un nombre")
